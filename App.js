@@ -24,10 +24,39 @@ const GridCell = ({label, value}) => (
 );
 
 const GridRow = ({ data }) => (
-	<View style={styles.gridRow}>
-		<GridCell label='Des'                                   value={data.des}/> 
-		<GridCell label={data.fuelName}                         value={data.fuelVol}/> 
-		<GridCell label={`${data.desUnity}/${data.fuelUnity}`}  value={data.perf}/> 
+	<View>
+		<View style={styles.gridRow}>
+			<GridCell label='Des'                                   value={data.des}/> 
+			<GridCell label={data.fuelName}                         value={data.fuelVol}/> 
+			<GridCell label={`${data.desUnity}/${data.fuelUnity}`}  value={data.perf}/> 
+
+		</View>
+		<View style={styles.gridRow}>
+			<GridCell label='Odo'                                   value={data.odo}/> 
+			<GridCell label='Preço'                                 value={`R$ ${data.price}`}/> 
+			<GridCell label='Local'                                 value={data.local}/> 
+		</View>
+	</View>
+);
+
+const RefuelInfo = ({ data }) => (
+	<View style={styles.panel}>
+
+		<View style={styles.iconContainer}>
+			<Image source={imageSources.fuel} style={styles.panelIcon} />
+		</View>
+
+		<View style={styles.infoContainer}>
+			<View style={styles.infoRow}>
+				<Text style={styles.infoText}>Reabastecimento</Text>
+				<Text style={styles.infoText}>{data.date}</Text>
+			</View>
+
+			<View style={styles.grid}>
+				<GridRow data={ data }/>
+			</View>
+		</View>
+
 	</View>
 );
 
@@ -40,15 +69,25 @@ export default function App() {
 		fuelVol: 8.3,
 		perf: 29.4
 	};
+	const rowData3 = {
+		date: '10/10/2023',
+		des: 128.5,
+		desUnity: 'Km',
+		fuelName: 'Gasolina',
+		fuelUnity: 'Litros',
+		fuelVol: 8.3,
+		perf: 29.4,
+		odo: '86357',
+		price: 45.86,
+		local: 'Posto Shell'
+	};
 
 	return (
 		<View style={styles.container}>
 
 			<View style={styles.topRow}>
-
-				<Text style={styles.title}>Auto Notes</Text>
+				<Text style={styles.title}>Auto Notes 1</Text>
 				<Image source={imageSources.user} style={styles.icon} />
-
 			</View>
 
 			<View style={styles.buttonBar}>
@@ -61,12 +100,12 @@ export default function App() {
 				<Text>This is some content below the title and icon.1</Text>
 			</View>
 
-
 			<View style={styles.panel}>
 				<View style={styles.iconContainer}>
 					<Image source={imageSources.fuel} style={styles.panelIcon} />
 				</View>
 
+			{/*
 				<View style={styles.infoContainer}>
 					<View style={styles.infoRow}>
 						<Text style={styles.infoText}>Reabastecimento</Text>
@@ -80,7 +119,10 @@ export default function App() {
 					</View>
 				</View>
 
+			*/}
 			</View>
+
+			<RefuelInfo data={rowData3}/>
 
 			<StatusBar style="auto" />
 		</View>
