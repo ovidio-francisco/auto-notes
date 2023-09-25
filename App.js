@@ -9,6 +9,20 @@ const imageSources = {
   tire: require('./assets/tire.png'),
 };
 
+
+const rowData3 = {
+	date: '11/12/2023',
+	des: 128.5,
+	desUnity: 'Km',
+	fuelName: 'Gasolina',
+	fuelUnity: 'Litros',
+	fuelVol: 8.3,
+	perf: 29.4,
+	odo: '86357',
+	price: 45.86,
+	local: 'Posto Shell'
+};
+
 const Button = ({icon, text}) => (
 	<TouchableOpacity style={styles.button}>
 		<Image source={icon} style={styles.buttonIcon }/>
@@ -23,15 +37,14 @@ const GridCell = ({label, value}) => (
 	</View>
 );
 
-const GridRow = ({ data }) => (
+const GridData = ({ data }) => (
 	<View>
-		<View style={styles.gridRow}>
+		<View style={styles.gridData}>
 			<GridCell label='Des'                                   value={data.des}/> 
 			<GridCell label={data.fuelName}                         value={data.fuelVol}/> 
 			<GridCell label={`${data.desUnity}/${data.fuelUnity}`}  value={data.perf}/> 
-
 		</View>
-		<View style={styles.gridRow}>
+		<View style={styles.gridData}>
 			<GridCell label='Odo'                                   value={data.odo}/> 
 			<GridCell label='Preço'                                 value={`R$ ${data.price}`}/> 
 			<GridCell label='Local'                                 value={data.local}/> 
@@ -53,7 +66,7 @@ const RefuelInfo = ({ data }) => (
 			</View>
 
 			<View style={styles.grid}>
-				<GridRow data={ data }/>
+				<GridData data={ data }/>
 			</View>
 		</View>
 
@@ -61,26 +74,6 @@ const RefuelInfo = ({ data }) => (
 );
 
 export default function App() {
-	const rowData2 = {
-		des: 128.5,
-		desUnity: 'Km',
-		fuelName: 'Gasolina',
-		fuelUnity: 'Litros',
-		fuelVol: 8.3,
-		perf: 29.4
-	};
-	const rowData3 = {
-		date: '10/10/2023',
-		des: 128.5,
-		desUnity: 'Km',
-		fuelName: 'Gasolina',
-		fuelUnity: 'Litros',
-		fuelVol: 8.3,
-		perf: 29.4,
-		odo: '86357',
-		price: 45.86,
-		local: 'Posto Shell'
-	};
 
 	return (
 		<View style={styles.container}>
@@ -98,28 +91,6 @@ export default function App() {
 
 			<View style={styles.contentBelow}>
 				<Text>This is some content below the title and icon.1</Text>
-			</View>
-
-			<View style={styles.panel}>
-				<View style={styles.iconContainer}>
-					<Image source={imageSources.fuel} style={styles.panelIcon} />
-				</View>
-
-			{/*
-				<View style={styles.infoContainer}>
-					<View style={styles.infoRow}>
-						<Text style={styles.infoText}>Reabastecimento</Text>
-						<Text style={styles.infoText}>09/09/2023</Text>
-					</View>
-
-
-					<View style={styles.grid}>
-						<GridRow data={{ des: 127.3, desUnity: 'Km', fuelName: 'Gas', fuelUnity: 'litros', fuelVol: 20, perf: 18.6, }} />
-						<GridRow data={rowData2 }/>
-					</View>
-				</View>
-
-			*/}
 			</View>
 
 			<RefuelInfo data={rowData3}/>
@@ -194,7 +165,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'black',
   },
-  gridRow: {
+  gridData: {
     flexDirection: 'row',
     borderBottomWidth: 1,
     borderBottomColor: 'black',
