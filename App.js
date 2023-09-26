@@ -1,6 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, StatusBar, TouchableOpacity} from 'react-native';
 
+import homeStyles   from './styles/homeStyles.js';
+import RefuelInfo       from './components/RefuelInfo.js';
+import Button       from './components/Button.js';
 
 const imageSources = {
   user: require('./assets/user.png'),
@@ -23,73 +26,25 @@ const rowData3 = {
 	local: 'Posto Shell'
 };
 
-const Button = ({icon, text}) => (
-	<TouchableOpacity style={styles.button}>
-		<Image source={icon} style={styles.buttonIcon }/>
-		<Text style={styles.buttonText}>{text}</Text>
-	</TouchableOpacity>
-);
 
-const GridCell = ({label, value}) => (
-	<View style={styles.gridCell}>
-		<Text style={styles.label}> {label} </Text>
-		<Text style={styles.value}> {value} </Text>
-	</View>
-);
-
-const GridData = ({ data }) => (
-	<View>
-		<View style={styles.gridData}>
-			<GridCell label='Des'                                   value={data.des}/> 
-			<GridCell label={data.fuelName}                         value={data.fuelVol}/> 
-			<GridCell label={`${data.desUnity}/${data.fuelUnity}`}  value={data.perf}/> 
-		</View>
-		<View style={styles.gridData}>
-			<GridCell label='Odo'                                   value={data.odo}/> 
-			<GridCell label='Preço'                                 value={`R$ ${data.price}`}/> 
-			<GridCell label='Local'                                 value={data.local}/> 
-		</View>
-	</View>
-);
-
-const RefuelInfo = ({ data }) => (
-	<View style={styles.panel}>
-
-		<View style={styles.iconContainer}>
-			<Image source={imageSources.fuel} style={styles.panelIcon} />
-		</View>
-
-		<View style={styles.infoContainer}>
-			<View style={styles.infoRow}>
-				<Text style={styles.infoText}>Reabastecimento</Text>
-				<Text style={styles.infoText}>{data.date}</Text>
-			</View>
-
-			<View style={styles.grid}>
-				<GridData data={ data }/>
-			</View>
-		</View>
-
-	</View>
-);
 
 export default function App() {
 
 	return (
-		<View style={styles.container}>
+		<View style={homeStyles.container}>
 
-			<View style={styles.topRow}>
-				<Text style={styles.title}>Auto Notes 1</Text>
-				<Image source={imageSources.user} style={styles.icon} />
+			<View style={homeStyles.topRow}>
+				<Text style={homeStyles.title}>Auto Notes 12</Text>
+				<Image source={imageSources.user} style={homeStyles.icon} />
 			</View>
 
-			<View style={styles.buttonBar}>
+			<View style={homeStyles.buttonBar}>
 				<Button icon={imageSources.fuel} text={'Combustível'}/>
 				<Button icon={imageSources.oil}  text={'Óleo'}/>
 				<Button icon={imageSources.tire} text={'Pneus'}/>
 			</View>
 
-			<View style={styles.contentBelow}>
+			<View style={homeStyles.contentBelow}>
 				<Text>This is some content below the title and icon.1</Text>
 			</View>
 
@@ -99,95 +54,4 @@ export default function App() {
 		</View>
 	);
 }
-
-const styles = StyleSheet.create({
-	container: {
-		paddingTop: 10,
-		paddingHorizontal: 10,
-	},
-	topRow: {
-		flexDirection: 'row',
-		justifyContent: 'space-between',
-	},
-	contentBelow: {
-		marginTop: 20, 
-	},
-	title: {
-		fontSize: 20,
-		fontWeight: 'bold',
-	},
-	icon: {
-		width: 30,
-		height: 30,
-	},
-
-  buttonBar: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginTop: 20,
-  },
-  button: {
-    alignItems: 'center',
-	marginHorizontal: 10,
-  },
-  buttonIcon: {
-    width: 45,
-    height: 45,
-    marginBottom: 5,
-  },
-  buttonText: {
-    fontSize: 16,
-  },
-
-  panel: {
-    flexDirection: 'row',
-    marginTop: 20,
-    alignItems: 'center',
-  },
-  iconContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  infoContainer: {
-    flex: 3,
-    marginLeft: 10,
-  },
-  infoRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 10,
-  },
-  infoText: {
-    fontSize: 14,
-  },
-  grid: {
-    borderWidth: 1,
-    borderColor: 'black',
-  },
-  gridData: {
-    flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderBottomColor: 'black',
-  },
-  gridCell: {
-    flex: 1,
-    padding: 5,
-    alignItems: 'center',
-  },
-  label: {
-    fontSize: 12,
-  },
-  value: {
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  panelIcon: {
-    width: 60, // Adjust size as needed
-    height: 60, // Adjust size as needed
-    marginRight: 10,
-  },
-
-});
-
 
