@@ -2,12 +2,12 @@ import React from 'react';
 import { Image, Text, TouchableOpacity} from 'react-native';
 
 
-import homeStyles from '../styles/homeStyles.js'
+import buttonStyles from '../styles/buttonStyles.js'
 
 const Button = ({icon, text}) => (
-	<TouchableOpacity style={homeStyles.button}>
-		<Image source={icon} style={homeStyles.buttonIcon }/>
-		<Text style={homeStyles.buttonText}>{text}</Text>
+	<TouchableOpacity style={buttonStyles.button}>
+		<Image source={icon} style={buttonStyles.buttonIcon }/>
+		<Text style={buttonStyles.buttonText}>{text}</Text>
 	</TouchableOpacity>
 );
 
