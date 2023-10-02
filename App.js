@@ -24,6 +24,7 @@ export default function App() {
 			</View>
 
 			<RefuelInfo data={rowData3}/>
+			<RefuelInfo data={rowData3}/>
 
 			<StatusBar style="auto" />
 		</View>

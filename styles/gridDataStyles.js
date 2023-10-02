@@ -1,11 +1,10 @@
 import { StyleSheet } from 'react-native';
 
-const gridCellStyles = StyleSheet.create({
+const gridDataStyles = StyleSheet.create({
   gridData: {
     flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderBottomColor: 'black',
+	// marginLeft: 1,
   }
 });
 
-export default gridCellStyles;
+export default gridDataStyles;

@@ -1,39 +1,34 @@
-
 import { StyleSheet } from 'react-native';
 
 const refuelInfostyles = StyleSheet.create({
-  panel: {
-    flexDirection: 'row',
-    marginTop: 20,
-    alignItems: 'center',
+  noteBlock: {
+	marginTop: 10,
   },
-  iconContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+  notePanel: {
+    borderTopWidth: 0, 
+	borderTopColor: 'gray', 
+	backgroundColor: '#eee',
   },
-  infoContainer: {
-    flex: 3,
-    marginLeft: 1,
-  },
-  infoRow: {
+  noteTitle: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 10,
+    // marginBottom: 10,
   },
-  infoText: {
+  noteTitleText: {
     fontSize: 14,
   },
-  panelIcon: {
+  noteContainer: {
+    flexDirection: 'row',
+    // marginTop: 20,
+    alignItems: 'center',
+  },
+  noteTypeIcon: {
     width: 35, 
     height: 35,
-    marginRight: 1,
-  },
-  grid: {
-    borderWidth: 1,
-    borderColor: 'black',
+    // marginRight: 1,
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
 });
 
 export default refuelInfostyles;
-

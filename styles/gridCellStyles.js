@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-const gridStyles = StyleSheet.create({
+const gridCellStyles = StyleSheet.create({
   gridCell: {
     flex: 1,
     padding: 5,
@@ -15,5 +15,5 @@ const gridStyles = StyleSheet.create({
   }
 });
 
-export default gridStyles;
+export default gridCellStyles;
 
